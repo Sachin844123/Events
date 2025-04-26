@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechFest 2025 - The premier college IT event featuring coding, design, cybersecurity, AI, and gaming competitions">
+    <meta name="keywords" content="techfest, college event, IT competition, coding, hackathon, cybersecurity, AI, gaming">
+    <meta name="theme-color" content="#0a0a1a">
+    <title>TechFest 2025 | College IT Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #00f7ff;
+            --secondary: #6e00ff;
+            --dark: #0a0a1a;
+            --light: #f0f8ff;
+            --accent: #ff3e7f;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+            --shadow-neon: 0 0 5px var(--primary), 0 0 15px var(--primary);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .neon-text {
+            text-shadow: var(--shadow-neon);
+            animation: neon-pulse 2s infinite alternate;
+        }
+        
+        @keyframes neon-pulse {
+            0% { text-shadow: 0 0 5px var(--primary), 0 0 15px var(--primary); }
+            100% { text-shadow: 0 0 10px var(--primary), 0 0 30px var(--primary), 0 0 40px var(--secondary); }
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        header.scrolled {
+            padding: 0.7rem 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.5rem;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+            font-size: 1.05rem;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(10, 10, 26, 0.7), rgba(10, 10, 26, 0.9)), 
+                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            z-index: -1;
+            animation: heroBackground 20s infinite alternate;
+        }
+        
+        @keyframes heroBackground {
+            0% { background-position: center top; }
+            100% { background-position: center bottom; }
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            padding: 0.9rem 2.2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--dark);
+            animation: fadeInUp 1s ease 0.6s both;
+            box-shadow: 0 4px 15px rgba(0, 247, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 247, 255, 0.4);
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .counter-container {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease 0.9s both;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .counter-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            background: rgba(110, 0, 255, 0.15);
+            border-radius: 10px;
+            min-width: 100px;
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+            background: rgba(110, 0, 255, 0.25);
+        }
+        
+        .counter-box span:first-child {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .counter-box span:last-child {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+        
+        section {
+            padding: 6rem 2rem;
+            scroll-margin-top: 80px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .event-card {
+            background: rgba(10, 10, 26, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 247, 255, 0.1);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .event-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+        
+        .event-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .event-card:hover .event-img {
+            transform: scale(1.05);
+        }
+        
+        .event-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--dark));
+        }
+        
+        .event-content {
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .event-tag {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .event-card:hover .event-tag {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(255, 62, 127, 0.4);
+        }
+        
+        .event-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .event-card:hover .event-title {
+            color: var(--secondary);
+        }
+        
+        .event-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            gap: 0.5rem;
+        }
+        
+        .event-info i {
+            width: 16px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .event-info svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .event-description {
+            margin: 1.5rem 0;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        
+        .register-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--gradient);
+            color: var(--dark);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .register-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+            z-index: -1;
+        }
+        
+        .register-btn:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .about {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .about p {
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            max-width: 800px;
+        }
+        
+        .about p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .highlights {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .highlight-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 280px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .highlight-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 247, 255, 0.15);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(5px);
+        }
+        
+        .highlight-box:hover .highlight-icon {
+            transform: translateY(-8px) scale(1.1);
+            background: rgba(0, 247, 255, 0.25);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .highlight-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .highlight-icon svg {
+            width: 2rem;
+            height: 2rem;
+            fill: var(--primary);
+        }
+        
+        .highlight-title {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .highlight-box p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            background: rgba(10, 10, 26, 0.98);
+            padding: 5rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            margin-top: auto;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-col h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            font-size: 1.3rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 20px;
+            display: inline-block;
+            opacity: 0.8;
+        }
+        
+        .footer-links a::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            transition: var(--transition);
+            font-weight: bold;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 25px;
+            opacity: 1;
+        }
+        
+        .footer-links a:hover::before {
+            left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(0, 247, 255, 0.1);
+            transition: var(--transition);
+            color: var(--light);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            color: var(--dark);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .social-links i {
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+        
+        .social-links svg {
+            width: 1.3rem;
+            height: 1.3rem;
+            fill: currentColor;
+            transition: var(--transition);
+        }
+        
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(240, 248, 255, 0.1);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: var(--shadow-md);
+            border: none;
+            font-size: 1.2rem;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(0, 247, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 247, 255, 0); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                min-height: 500px;
+            }
+            
+            .event-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+            
+            header.scrolled {
+                padding: 0.7rem 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                margin-top: 70px;
+                padding: 1.5rem;
+            }
+            
+            .hero h1 {
+                margin-bottom: 1rem;
+            }
+            
+            .hero p {
+                margin-bottom: 2rem;
+            }
+            
+            .counter-container {
+                gap: 1rem;
+            }
+            
+            .counter-box {
+                min-width: 80px;
+                padding: 1rem;
+            }
+            
+            .counter-box span:first-child {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .event-content {
+                padding: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-col {
+                text-align: center;
+            }
+            
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-links a {
+                padding-left: 0;
+            }
+            
+            .footer-links a::before {
+                display: none;
+            }
+            
+            .footer-links a:hover {
+                padding-left: 0;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1002;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn:hover {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(10, 10, 26, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                z-index: 1001;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+                border-left: 1px solid rgba(0, 247, 255, 0.1);
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 2.5rem;
+                width: 100%;
+                padding: 2rem;
+            }
+            
+            nav a {
+                font-size: 1.3rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: none;
+                z-index: 1000;
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+            }
+            
+            .overlay.active {
+                display: block;
+            }
+        }
+        
+        /* Form styles */
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .newsletter-btn {
+            padding: 0 1.5rem;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            background: var(--gradient);
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-btn:hover {
+            filter: brightness(1.1);
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+        }
+        
+        /* Loading animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <i class="fas fa-code logo-icon"></i>
+            <span>TECH<span class="neon-text">FEST</span> 2025</span>
+        </div>
+        <nav id="nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#register" class="btn btn-primary">Register</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+        <div class="hero-content">
+            <h1 id="hero-heading">TECH<span class="neon-text">FEST</span> 2025</h1>
+            <p>Join the biggest tech event organized by the IT Department. Five amazing tech competitions to showcase your skills and win exciting prizes!</p>
+            <a href="#events" class="btn btn-primary pulse">Explore Events</a>
+            
+            <div class="counter-container">
+                <div class="counter-box">
+                    <span id="days">00</span>
+                    <span>Days</span>
+                </div>
+                <div class="counter-box">
+                    <span id="hours">10</span>
+                    <span>Hours</span>
+                </div>
+                <div class="counter-box">
+                    <span id="minutes">30</span>
+                    <span>Mins</span>
+                </div>
+                <div class="counter-box">
+                    <span id="seconds">00</span>
+                    <span>Secs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="events" aria-labelledby="events-heading">
+        <div class="container">
+            <h2 class="section-title" id="events-heading">Our Events</h2>
+            <div class="events-container">
+                <div class="event-card">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')" aria-hidden="true"></div>
+                    <div class="event-content">
+                        <span class="event-tag">Coding</span>
+                        <h3 class="event-title">Code Crunch</h3>
+                        <div class="event-info">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <span>May 10, 2025 | 10:00 AM</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Computer Lab A</span>
+                        </div>
+                        <p class="event-description">Competitive programming contest where participants solve complex coding problems against the clock. Test your algorithmic skills and coding speed!</p>
+                        <a href="https://forms.google.com" target="_blank" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')" aria-hidden="true"></div>
+                    <div class="event-content">
+                        <span class="event-tag">Design</span>
+                        <h3 class="event-title">UI/UX Battle</h3>
+                        <div class="event-info">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <span>May 12, 2025 | 2:00 PM</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Design Studio</span>
+                        </div>
+                        <p class="event-description">Showcase your design skills by creating intuitive and beautiful user interfaces. Solve real-world design problems and impress our industry judges!</p>
+                        <a href="https://forms.google.com" target="_blank" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')" aria-hidden="true"></div>
+                    <div class="event-content">
+                        <span class="event-tag">Cybersecurity</span>
+                        <h3 class="event-title">Hack Defender</h3>
+                        <div class="event-info">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <span>May 15, 2025 | 11:00 AM</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Security Lab</span>
+                        </div>
+                        <p class="event-description">Test your cybersecurity skills in this Capture the Flag competition. Identify vulnerabilities, exploit weaknesses, and protect systems from attacks.</p>
+                        <a href="https://forms.google.com" target="_blank" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')" aria-hidden="true"></div>
+                    <div class="event-content">
+                        <span class="event-tag">AI</span>
+                        <h3 class="event-title">AI Innovation Challenge</h3>
+                        <div class="event-info">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <span>May 18, 2025 | 9:00 AM</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Conference Room</span>
+                        </div>
+                        <p class="event-description">Build innovative AI solutions for real-world problems. Utilize machine learning, natural language processing, or computer vision to create impactful applications.</p>
+                        <a href="https://forms.google.com" target="_blank" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')" aria-hidden="true"></div>
+                    <div class="event-content">
+                        <span class="event-tag">Gaming</span>
+                        <h3 class="event-title">Tech Gaming Tournament</h3>
+                        <div class="event-info">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <span>May 20, 2025 | 3:00 PM</span>
+                        </div>
+                        <div class="event-info">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Gaming Arena</span>
+                        </div>
+                        <p class="event-description">Battle it out in our tech-themed gaming competition featuring popular esports titles. Show off your gaming skills and strategic thinking to win amazing prizes!</p>
+                        <a href="https://forms.google.com" target="_blank" class="register-btn">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" aria-labelledby="about-heading">
+        <div class="container">
+            <h2 class="section-title" id="about-heading">About TechFest</h2>
+            <div class="about">
+                <p>TechFest 2025 is the premier technology event organized by the IT Department of our college. It brings together the brightest minds to compete, learn, and showcase their technical skills across various domains. With five exciting events, there's something for everyone!</p>
+                <p>Our mission is to foster innovation, creativity, and technical excellence among students. Whether you're a coding expert, design enthusiast, cybersecurity specialist, AI researcher, or gaming pro, TechFest offers you a platform to shine!</p>
+                
+                <div class="highlights">
+                    <div class="highlight-box float">
+                        <div class="highlight-icon">
+                            <i class="fas fa-trophy" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="highlight-title">Cash Prizes</h4>
+                        <p>Win exciting cash prizes totaling over $5,000 across all events!</p>
+                    </div>
+                    
+                    <div class="highlight-box float" style="animation-delay: 0.2s">
+                        <div class="highlight-icon">
+                            <i class="fas fa-certificate" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="highlight-title">Certificates</h4>
+                        <p>All participants receive certificates. Winners get special recognition!</p>
+                    </div>
+                    
+                    <div class="highlight-box float" style="animation-delay: 0.4s">
+                        <div class="highlight-icon">
+                            <i class="fas fa-user-tie" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="highlight-title">Industry Judges</h4>
+                        <p>Get evaluated by industry experts and receive valuable feedback!</p>
+                    </div>
+                    
+                    <div class="highlight-box float" style="animation-delay: 0.6s">
+                        <div class="highlight-icon">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="highlight-title">Networking</h4>
+                        <p>Connect with tech enthusiasts, industry professionals, and recruiters!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" aria-labelledby="contact-heading">
+        <div class="container">
+            <h2 class="section-title" id="contact-heading">Contact Us</h2>
+            <div class="about">
+                <p>Have questions about TechFest 2025? Feel free to reach out to our team. We're here to help you with registration, event details, or any other queries you might have.</p>
+                
+                <div class="highlights">
+                    <div class="highlight-box">
+                        <div class="highlight-icon">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="highlight-title">Phone</h4>
+                        <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <div class="highlight-icon">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="highlight-title">Email</h4>
+                        <p><a href="mailto:techfest@college.edu">techfest@college.edu</a></p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <div class="highlight-icon">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="highlight-title">Location</h4>
+                        <p>IT Department, College Campus</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <div class="highlight-icon">
+                            <i class="fas fa-share-alt" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="highlight-title">Social Media</h4>
+                        <div class="social-links">
+                            <a href="#" target="_blank" aria-label="Twitter">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" target="_blank" aria-label="Instagram">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" target="_blank" aria-label="Facebook">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="newsletter-form">
+                    <label for="newsletter-email" class="sr-only">Email for newsletter</label>
+                    <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Events</h3>
+                    <ul class="footer-links">
+                        <li><a href="#events">Code Crunch</a></li>
+                        <li><a href="#events">UI/UX Battle</a></li>
+                        <li><a href="#events">Hack Defender</a></li>
+                        <li><a href="#events">AI Innovation Challenge</a></li>
+                        <li><a href="#events">Tech Gaming Tournament</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Rules & Guidelines</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Past Winners</a></li>
+                        <li><a href="#">Sponsors</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to stay updated about TechFest events and announcements!</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 TechFest. All Rights Reserved. Organized by IT Department.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const nav = document.getElementById('nav');
+        const overlay = document.getElementById('overlay');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
+        });
+        
+        overlay.addEventListener('click', () => {
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+        });
+        
+        // Close mobile menu when clicking on links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    nav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Countdown timer
+        const countDownDate = new Date("April 30, 2025 09:00:00").getTime();
+        
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+            }
+        }, 1000);
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section-title, .event-card, .about p, .highlight-box').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const emailInput = document.getElementById('newsletter-email');
+                const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+                
+                // Simple validation
+                if (emailInput.value && emailInput.value.includes('@')) {
+                    submitBtn.innerHTML = '<span class="loading-spinner"></span>';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        submitBtn.innerHTML = 'Subscribed!';
+                        emailInput.value = '';
+                        
+                        setTimeout(() => {
+                            submitBtn.innerHTML = 'Subscribe';
+                            submitBtn.disabled = false;
+                        }, 2000);
+                    }, 1500);
+                }
+            });
+        }
+        
+        // Preload critical images
+        function preloadImage(url) {
+            const img = new Image();
+            img.src = url;
+        }
+        
+        // Preload hero background
+        preloadImage('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    </script>
+</body>
+</html>
+
+                
+                
